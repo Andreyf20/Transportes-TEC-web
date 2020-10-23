@@ -1,0 +1,33 @@
+<app-menu-toolbar></app-menu-toolbar>
+
+<div style="height: auto;">
+    <label class="labelGrande" style="line-height: 50px;">
+        Solicitud #{{solicitud.idSolicitud}}
+    </label>
+</div>
+
+<div>
+    <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 20px;">
+                Detalles
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <ng-template matExpansionPanelContent>
+            <app-solicitud-info-card header="Dependencia solicitante">{{solicitud.dependenciaSolictante}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Encargado(a)">{{solicitud.encargado}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Justificación del viaje">{{solicitud.justificacion}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Lugares a visitar y ruta">{{solicitud.lugaresRuta}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Tipo de actividad">{{solicitud.tipoActividad}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Tipo de vehículo">{{solicitud.tipoVehiculo}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Número centro funcional">{{solicitud.numCentroFuncional}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Hora de salida">{{solicitud.fechaHoraSalida.toLocaleString('en-GB')}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Hora de regreso">{{solicitud.fechaHoraRegreso.toLocaleString('en-GB')}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Placa de vehículo">{{solicitud.placaVehiculo}}</app-solicitud-info-card>
+            <app-solicitud-info-card header="Nombre conductor">{{solicitud.nombreConductor}}</app-solicitud-info-card>
+        </ng-template> 
+
+        </mat-expansion-panel>
+</div>
