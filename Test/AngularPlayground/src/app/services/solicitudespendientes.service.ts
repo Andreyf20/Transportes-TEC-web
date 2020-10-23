@@ -32,8 +32,14 @@ export class SolicitudespendientesService {
     console.log(xd);
 
     const url = '/api/enviarSolicitud2';
+    //const url = '/test/';
+    //const test = {test1: "my content"}
 
-    this.http.post(url, xd);
+    this.http.post(url, xd).toPromise().then(
+      data => {
+        console.log(data)
+      }
+    );
 
   }
 }
