@@ -132,19 +132,6 @@ app.post("/api/enviarSolicitud",async(req,res) =>{
 
 })
 
-app.post("/api/enviarSolicitud2",(req,res) =>{
-  console.log(req.body);
-  res.sendStatus(200).json()
-  pool.connect((err, client, release) => {
-    release()
-    if (err) {
-      return console.error('Error acquiring client', err.stack)
-    }
-    
-  })
-  
-});
-
 var port = 5000;
 
 app.use(cors());
