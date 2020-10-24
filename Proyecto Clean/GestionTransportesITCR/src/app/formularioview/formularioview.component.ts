@@ -79,6 +79,10 @@ export class FormularioviewComponent implements OnInit {
       }
     }
 
+    //Objeto es "valido"
+
+    
+
   }
 }
 
