@@ -27,13 +27,23 @@ export class SolicitudespendientesService {
 
   crearSolicitud(): void{
 
-    const xd = new SolicitudViaje();
+    //const xd = new SolicitudViaje();
+
+    const xd = {
+      dependenciasolicitante : 'asdangular',
+      encargado : 'asdangular',
+      justificacionviaje : 'asdangular',
+      lugaresruta : 'asdangular',
+      tipoactividad : 'asdangular',
+      tipovehiculo : 'asdangular',
+      horasalida : '10-10-2020 10:00',
+      horaregreso : '10-10-2020 10:00',
+      numerocentrofuncional : 3
+   }
 
     console.log(xd);
 
-    const url = '/api/enviarSolicitud2';
-    //const url = '/test/';
-    //const test = {test1: "my content"}
+    const url = '/api/enviarSolicitud';
 
     this.http.post(url, xd).toPromise().then(
       data => {

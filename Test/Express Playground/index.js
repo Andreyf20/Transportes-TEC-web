@@ -84,16 +84,16 @@ app.get("/api/consultarViaje/:numSolicitud/",async(req,res) =>{
 
 app.post("/api/enviarSolicitud",async(req,res) =>{
   pool.connect((err, client, release) => {
-    release()
     if (err) {
       return console.error('Error acquiring client', err.stack)
     }
 
-    console.log(req.body);
+    //console.log(req.body);
+
     const nuevaSolicitud = {
        dependenciasolicitante : req.body.dependenciasolicitante,
        encargado : req.body.encargado,
-       justificacionviaje : req.body.justificacion,
+       justificacionviaje : req.body.justificacionviaje,
        lugaresruta : req.body.lugaresruta,
        tipoactividad : req.body.tipoactividad,
        tipovehiculo : req.body.tipovehiculo,
@@ -102,9 +102,34 @@ app.post("/api/enviarSolicitud",async(req,res) =>{
        numerocentrofuncional : req.body.numerocentrofuncional
     }
 
+    //console.log(nuevaSolicitud);
+
+    const query = `CALL spCrearSolicitud(
+      '${nuevaSolicitud.dependenciasolicitante}' :: varchar,
+      '${nuevaSolicitud.encargado}' :: varchar,
+      '${nuevaSolicitud.justificacionviaje}' :: varchar,
+      ${nuevaSolicitud.numerocentrofuncional},
+      '${nuevaSolicitud.tipoactividad}' :: varchar,
+      '${nuevaSolicitud.tipovehiculo}' :: varchar,
+      '${nuevaSolicitud.lugaresruta}' :: varchar,
+      '${nuevaSolicitud.horasalida}' :: timestamp,
+      '${nuevaSolicitud.horaregreso}' :: timestamp);`
+
+    //console.log(query)
+
+    client.query(query, (err, result) => {
+      release()
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      
+      res.sendStatus(200)
+    })
+
     console.log(nuevaSolicitud);
 
   })
+
 })
 
 app.post("/api/enviarSolicitud2",(req,res) =>{
