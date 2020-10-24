@@ -1,3 +1,4 @@
+import { SolicitudespendientesComponent } from './solicitudespendientes/solicitudespendientes.component';
 import { FormularioviewComponent } from './formularioview/formularioview.component';
 import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component';
 import { LoginviewComponent } from './loginview/loginview.component';
@@ -8,7 +9,8 @@ const routes: Routes = [
   {path: '', component: LoginviewComponent },
   {path: 'login', component: LoginviewComponent },
   {path: 'menu', component: MenuprincipalComponent },
-  {path: 'solicitar-servicio', component: FormularioviewComponent }
+  {path: 'solicitar-servicio', component: FormularioviewComponent },
+  {path: 'solicitudes-pendientes', component: SolicitudespendientesComponent}
 ];
 
 @NgModule({
@@ -17,4 +19,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [ LoginviewComponent, MenuprincipalComponent, FormularioviewComponent ];
+export const routingComponents = [ LoginviewComponent, MenuprincipalComponent, FormularioviewComponent, SolicitudespendientesComponent ];

@@ -7,21 +7,29 @@ import { SolicitudViaje } from '../models/solicitudviaje.model';
 })
 export class ServidorService {
 
+  private url = 'http://localhost:';
+  private port = '5000';
+
+  private urlplusport = this.url + this.port;
+
   constructor(
     private http: HttpClient
   ) { }
 
-  getSolicitudesPendientes(): any{
-    const url = '/api/consultarSolicitudesDeFuncionario/*/';
-    console.log(url);
-    return this.http.get(url);
-  }
-
   crearSolicitud(nuevaSolicitud: SolicitudViaje): any{
     console.log(nuevaSolicitud);
-    const url = 'http://localhost:5000/api/enviarSolicitud';
+    const url = this.urlplusport + '/api/enviarSolicitud';
     return this.http.post(url, nuevaSolicitud).toPromise().then(res => {
       console.log(res);
     });
   }
+
+  getSolicitudesyViajes(): any {
+    const url = this.urlplusport + '/api/consultarSolicitudesDeFuncionario/*/';
+
+    // return this.http.get(url);
+    console.log(url);
+    this.http.get(url).subscribe(json => { console.log(json) });
+  }
+
 }

@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormularioviewComponent } from './formularioview/formularioview.component';
 import { MenutoolbarComponent } from './menutoolbar/menutoolbar.component';
 import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component';
+import { SolicitudespendientesComponent } from './solicitudespendientes/solicitudespendientes.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component'
     LoginviewComponent,
     FormularioviewComponent,
     MenutoolbarComponent,
-    MenuprincipalComponent
+    MenuprincipalComponent,
+    SolicitudespendientesComponent
   ],
   imports: [
     BrowserModule,
