@@ -1,0 +1,26 @@
+<div style="text-align:center;">
+
+    <label id="sysLbl">Sistema de gestión de transportes</label>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Nombre de usuario</mat-label>
+        <input #username matInput id="userInput">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input #pass matInput [type]="'password'">
+      </mat-form-field>
+    </div>
+
+    <!--Routing with params ref: https://stackoverflow.com/a/42201855-->
+
+    <button mat-raised-button (click) ="loginBtnOnClick(username.value,pass.value)">Ingresar</button>
+
+    <br>
+    <img id="teclogo" src="/assets/res/logotec.png">
+  </div>
+

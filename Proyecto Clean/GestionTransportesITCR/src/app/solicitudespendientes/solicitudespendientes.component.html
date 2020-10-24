@@ -1,0 +1,28 @@
+<app-menutoolbar></app-menutoolbar>
+
+<div>
+    <label class="labelGrande">Solicitudes pendientes</label>
+</div>
+
+<div class="table-container mat-elevation-z0" >
+    <table datatable class="row-border hover">
+        <thead>
+          <tr style="text-align: left">
+            <th>ID solicitud</th>
+            <th>Fecha</th>
+            <th>Destino</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of solicitudesyviajes">
+            <td>{{element.numsolicitud}}</td>
+            <td>{{element.horasalida}}</td>
+            <td>{{element.lugaresruta}}</td>
+            <td style="padding:0px;height: 100%;"> 
+                <button mat-button color=primary style="width:100%" (click) ="verDetallesOnClick(element.numsolicitud)">Ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

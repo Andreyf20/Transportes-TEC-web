@@ -1,0 +1,71 @@
+button{
+
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    width: 500px;
+    height: 75px;
+
+    background: #EF3340;
+    font-size: 32px;
+    font-weight: 64px;
+    font-family: Roboto;
+
+    color: #FFFFFF;
+  }
+
+
+
+  mat-checkbox{
+    display: inline-block;
+    margin-left:20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  mat-form-field{
+    width: 500px;
+    padding: 0px;
+  }
+
+  mat-form-field.mat-form-field{
+    font-size: 20px;
+  }
+
+  div{
+    margin-left: 20px;
+  }
+
+  #redBtn:hover{
+    background-color: #b50018;
+  }
+
+  .campoTiempo{
+    width: 500px;
+  }
+
+  .campoTiempo.mat-form-field{
+    font-size: 20px;
+  }
+
+  .campoTiempo input{
+    height: 30px;
+  }
+
+  .labelGrande{
+
+    display: inline-block;
+
+    font-size: 40px;
+
+    margin-bottom: 50px;
+
+    color: #002855;
+  }
+
+  .labelMediano{
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #002855;
+  }

@@ -1,0 +1,57 @@
+<p>
+    <mat-toolbar color="primary" style="margin-bottom: 30px; min-width: 300px;">
+
+      <mat-toolbar-row>
+        <h1 style="padding: 0 16px; font-size: 40px;" *ngIf="(loggedUser != '') && (loggedUser != null) && (loggedUser != ' ') else elseBlock">Bienvenido {{loggedUser}}</h1>
+        <ng-template style="margin-left:16px;padding: 0 16px; font-size: 40px;" #elseBlock>
+          <h1 style="padding: 0 16px; font-size: 40px;">Bienvenido invitado</h1>
+        </ng-template>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row style="background-color: #EF3340">
+        
+      <a routerLink='/solicitar-servicio'>
+        <button mat-button (click) = "solicitarServicio()">Solicitar servicio</button>
+      </a>
+
+      <a>
+        <button mat-button>Reportes</button>
+      </a>
+
+      <mat-expansion-panel class="mat-elevation-z0">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Solicitudes
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ng-template matExpansionPanelContent>
+
+            <mat-list>
+
+              <a class="anchorSolicitudes" routerLink="/solicitudes-pendientes">
+                <mat-list-item class= "solicitudItem"> Pendientes </mat-list-item>
+              </a>
+
+              <a class="anchorSolicitudes" routerLink="/solicitudes-completadas">
+                <mat-list-item class= "solicitudItem"> Completadas </mat-list-item>
+              </a>
+
+            </mat-list>
+
+          </ng-template>
+      </mat-expansion-panel>
+
+      <!--No poner componentes despues de este tag ya que van a pegarse al lado derecho-->
+      <span class="right-spacer"></span>
+        <span flex style="height:100%;">
+        <a routerLink="/login">
+          <button mat-button (click)='logout()'>
+            <mat-icon svgIcon="logout" aria-hidden="false" aria-label="Cerrar sesion"></mat-icon>
+          </button>
+        </a>
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p>

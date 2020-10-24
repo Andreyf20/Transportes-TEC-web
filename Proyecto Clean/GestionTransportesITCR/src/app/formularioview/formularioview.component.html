@@ -1,0 +1,90 @@
+<app-menutoolbar></app-menutoolbar>
+
+<div>
+  <label class="labelGrande">Solicitud de servicio</label>
+  <br>
+  <label class="labelMediano">Información general</label>
+</div>
+
+<div class="labelinput">
+  <mat-form-field appearance="fill">
+    <mat-label class="fieldLabel" >Dependencia solicitante</mat-label>
+    <input matInput [(ngModel)] = 'dependenciaSolicitante'>
+  </mat-form-field>
+</div>
+
+<div class="labelinput">
+  <mat-form-field appearance="fill">
+    <mat-label class="fieldLabel" >Encargado(a)</mat-label>
+    <input matInput [(ngModel)] = 'encargado'>
+  </mat-form-field>
+</div>
+
+<div class="labelinput">
+  <mat-form-field appearance="fill">
+    <mat-label class="textareaLabel" >Justificacion del viaje</mat-label>
+    <textarea matInput [(ngModel)] = 'justificacionViaje'></textarea>
+  </mat-form-field>
+</div>
+
+<div class="labelinput">
+  <mat-form-field appearance="fill">
+    <mat-label class="textareaLabel" >Lugares a visitar y ruta</mat-label>
+    <textarea matInput [(ngModel)] = 'lugaresRuta'></textarea>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo de actividad</mat-label>
+    <mat-select [(ngModel)] = 'tipoActividad'>
+      <mat-option *ngFor="let actividad of tiposActividad" [value]="actividad.actividad">
+    {{actividad.actividad}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo de vehículo</mat-label>
+    <mat-select [(ngModel)] ='tipoVehiculo'>
+      <mat-option *ngFor="let vehiculo of tiposVehiculo" [value]="vehiculo.vehiculo">
+    {{vehiculo.vehiculo}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+
+  <label class="labelMediano">Hora</label>
+
+  <br>
+
+  <mat-form-field class="campoTiempo" appearance="fill">
+    <mat-label>Salida</mat-label>
+    <input matInput type="datetime-local" [(ngModel)] ='horaSalida' >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="campoTiempo" appearance="fill" >
+    <mat-label>Regreso</mat-label>
+    <input matInput type="datetime-local" [(ngModel)] ='horaRegreso'>
+  </mat-form-field>
+
+</div>
+
+<div class="labelinput">
+  <mat-form-field appearance="fill">
+    <mat-label class="fieldLabel" >Número de centro funcional</mat-label>
+    <input matInput type="number" [(ngModel)] = 'numerocentrofuncional'>
+  </mat-form-field>
+</div>
+
+<mat-checkbox [(ngModel)]="doyFe">Se da fe de que existen recursos presupuestarios en el centro funcional</mat-checkbox>
+
+<br>
+
+<button mat-raised-button [disabled]="!doyFe" (click) = "enviarSolicitudBtnOnClick()">Enviar solicitud</button>
