@@ -1,11 +1,11 @@
-import { SolicitudViaje } from './../../models/solicitudviaje.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SolicitudViaje } from '../models/solicitudviaje.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConsultasServiceService {
+export class ServidorService {
 
   constructor(
     private http: HttpClient
@@ -18,7 +18,10 @@ export class ConsultasServiceService {
   }
 
   crearSolicitud(nuevaSolicitud: SolicitudViaje): any{
+    console.log(nuevaSolicitud);
     const url = '/api/enviarSolicitud/';
-    return this.http.post(url, nuevaSolicitud);
+    return this.http.post(url, nuevaSolicitud).toPromise().then(res => {
+      console.log(res);
+    });
   }
 }

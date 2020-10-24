@@ -1,3 +1,4 @@
+import { ServidorService } from './../services/servidor.service';
 import { SolicitudViaje } from './../models/solicitudviaje.model';
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -32,7 +33,11 @@ export class FormularioviewComponent implements OnInit {
   public horaRegreso: Date;
   public numerocentrofuncional: number;
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private snackBar: MatSnackBar) {
+  constructor(
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer,
+    private servidorServerService: ServidorService,
+    private snackBar: MatSnackBar) {
     iconRegistry.addSvgIcon('logout', sanitizer.bypassSecurityTrustResourceUrl('../../assets/res/logoutIcon.svg'));
   }
 
@@ -70,20 +75,26 @@ export class FormularioviewComponent implements OnInit {
       nuevaSolicitud.horaregreso
     ];
 
+    if (this.valid(values)){
+      console.log(nuevaSolicitud);
+      this.servidorServerService.crearSolicitud(nuevaSolicitud);
+      this.snackBar.open('Solicitud enviada', 'OK', { duration: 2000, });
+    }
+
+  }
+
+  valid(values: any): boolean{
     // tslint:disable-next-line: forin
     for (const elem of values){
 
       if (elem === undefined){
         this.snackBar.open('Hay campos vacíos', 'Entendido', { duration: 2000, });
-        break;
+        return false;
       }
     }
-
-    //Objeto es "valido"
-
-    
-
+    return true;
   }
+
 }
 
 const tiposActividad: TipoActividad [] = [
