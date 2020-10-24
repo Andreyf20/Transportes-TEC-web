@@ -30,7 +30,7 @@ export class FormularioviewComponent implements OnInit {
   public tipoVehiculo: string;
   public horaSalida: Date;
   public horaRegreso: Date;
-  public numCentroFuncional: number;
+  public numerocentrofuncional: number;
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private snackBar: MatSnackBar) {
     iconRegistry.addSvgIcon('logout', sanitizer.bypassSecurityTrustResourceUrl('../../assets/res/logoutIcon.svg'));
@@ -46,13 +46,11 @@ export class FormularioviewComponent implements OnInit {
 
   enviarSolicitudBtnOnClick(): void{
 
-    this.snackBar.open('Hay campos vacíos', 'Entendido', { duration: 2000, });
-
     const nuevaSolicitud: SolicitudViaje = new SolicitudViaje(
       this.dependenciaSolicitante,
       this.encargado,
       this.justificacionViaje,
-      this.numCentroFuncional,
+      this.numerocentrofuncional,
       this.tipoActividad,
       this.tipoVehiculo,
       this.lugaresRuta,
@@ -60,12 +58,29 @@ export class FormularioviewComponent implements OnInit {
       this.horaRegreso,
     );
 
-    console.log((nuevaSolicitud.encargado === undefined));
+    const values = [
+      nuevaSolicitud.dependenciasolicitante,
+      nuevaSolicitud.encargado,
+      nuevaSolicitud.justificacionviaje,
+      nuevaSolicitud.numerocentrofuncional,
+      nuevaSolicitud.tipoactividad,
+      nuevaSolicitud.tipovehiculo,
+      nuevaSolicitud.lugaresruta,
+      nuevaSolicitud.horasalida,
+      nuevaSolicitud.horaregreso
+    ];
+
+    // tslint:disable-next-line: forin
+    for (const elem of values){
+
+      if (elem === undefined){
+        this.snackBar.open('Hay campos vacíos', 'Entendido', { duration: 2000, });
+        break;
+      }
+    }
 
   }
-
 }
-
 
 const tiposActividad: TipoActividad [] = [
 
