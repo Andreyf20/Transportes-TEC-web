@@ -24,12 +24,10 @@ export class ServidorService {
     });
   }
 
-  getSolicitudesyViajes(): any {
+  getSolicitudesyViajes(): any{
     const url = '/api/consultarSolicitudesDeFuncionario/*/';
 
-    // return this.http.get(url);
-    console.log(url);
-    this.http.get(url).subscribe(json => { console.log(json) });
-  }
+    return this.http.get(url);
 
+  }
 }

@@ -21,7 +21,49 @@ export class SolicitudespendientesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.servidorService.getSolicitudesyViajes();
+
+    this.servidorService.getSolicitudesyViajes().subscribe( (jsonarray) => {
+
+      this.solicitudesyviajes = Object.keys(jsonarray).map((personNamedIndex) => {
+
+        const jsonobject = jsonarray[personNamedIndex];
+
+        const viajeSolicitudObject = new SolicitudViaje(
+
+          jsonobject.dependenciasolicitante,
+          jsonobject.encargado,
+          jsonobject.justificacionviaje,
+          jsonobject.numerocentrofuncional,
+          jsonobject.tipoactividad,
+          jsonobject.tipovehiculo,
+          jsonobject.lugaresruta,
+          new Date(JSON.stringify(jsonobject.fechahorasalida).replace('T', ' ').replace('Z', '')),
+          new Date(JSON.stringify(jsonobject.fechahoraregreso).replace('T', ' ').replace('Z', '')),
+          jsonobject.numsolicitud,
+          jsonobject.estadosolicitud,
+
+          jsonobject.kilometrajeinicial,
+          jsonobject.kilometrajefinal,
+          jsonobject.diferenciakilometraje,
+          jsonobject.costoxkilometro,
+          jsonobject.descripcion,
+          jsonobject.notasconductor,
+          jsonobject.tipocombustible,
+          jsonobject.costocombustible,
+          jsonobject.nombreconductor,
+          jsonobject.cedulaconductor
+
+        );
+
+        return viajeSolicitudObject;
+
+      });
+      console.log(this.solicitudesyviajes);
+    });
+
+    
+
+
   }
 
   verDetallesOnClick(): void{

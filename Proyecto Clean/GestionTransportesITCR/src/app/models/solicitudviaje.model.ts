@@ -24,15 +24,29 @@ export class SolicitudViaje{
     cedulaconductor: number;
 
     constructor(
-        dependienciasolicitante,
-        encargado,
-        justificacion,
-        numcentrofuncional,
-        tipoactividad,
-        tipovehiculo,
-        lugaresruta,
-        fechahorasalida,
-        fechahoraregreso){
+        dependienciasolicitante: string,
+        encargado: string,
+        justificacion: string,
+        numcentrofuncional: number,
+        tipoactividad: string,
+        tipovehiculo: string,
+        lugaresruta: string,
+        fechahorasalida: Date,
+        fechahoraregreso: Date,
+
+        numsolicitud = -1,
+        estadosolicitud = 'PENDIENTE',
+        kilometrajeinicial = 0,
+        kilometrajefinal = 0,
+        diferenciakilometraje = (kilometrajefinal - kilometrajeinicial),
+        costoxkilometro = 0,
+        descripcion = 'No hay descripcion',
+        notasconductor   = 'No hay notas',
+        tipocombustible = 'NO ESPECIFICADO',
+        costocombustible = 0,
+        nombreconductor = 'NO ESPECIFICADO',
+        cedulaconductor  = 0
+        ){
 
         this.dependenciasolicitante = dependienciasolicitante;
         this.encargado = encargado;
@@ -45,17 +59,17 @@ export class SolicitudViaje{
         this.horasalida = fechahorasalida;
         this.horaregreso = fechahoraregreso;
 
-        this.numsolicitud = -1;
-        this.estadosolicitud = 'PENDIENTE';
-        this.kilometrajeinicial = 0;
-        this.kilometrajefinal = 0;
-        this.costoxkilometro = 0;
-        this.descripcion  = 'No hay descripcion';
-        this.notasconductor   = 'No hay notas';
-        this.tipocombustible = 'NO ESPECIFICADO';
-        this.costocombustible = 0;
-        this.nombreconductor = 'NO ESPECIFICADO';
-        this.cedulaconductor  = 0;
+        this.numsolicitud = numsolicitud;
+        this.estadosolicitud = estadosolicitud;
+        this.kilometrajeinicial = kilometrajeinicial;
+        this.kilometrajefinal = kilometrajefinal;
+        this.diferenciakilometraje = diferenciakilometraje;
+        this.costoxkilometro = costoxkilometro;
+        this.descripcion  = descripcion;
+        this.notasconductor   = notasconductor;
+        this.tipocombustible = tipocombustible;
+        this.costocombustible = costocombustible;
+        this.nombreconductor =  nombreconductor;
+        this.cedulaconductor  = cedulaconductor;
     }
-
 }
