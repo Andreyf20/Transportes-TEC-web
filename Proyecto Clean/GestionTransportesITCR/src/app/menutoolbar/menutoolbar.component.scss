@@ -1,0 +1,46 @@
+
+    .anchorSolicitudes{
+        text-decoration:none;
+      }
+  
+      .solicitudItem{
+        color:White;
+      }
+  
+      .solicitudItem:hover{
+        background-color:#ff6c6b;
+      }
+  
+      mat-panel-title{
+        font-size: 24px
+      }
+  
+      mat-expansion-panel{
+        border-radius:0%;
+        background-color: #EF3340;
+        padding: 0px;
+      }
+  
+      mat-panel-title{
+        color: White;
+      }
+  
+      a{
+        height:100%;
+      }
+  
+      mat-toolbar-row{
+        padding: 0px;
+      }
+  
+      button{
+        height:100%;
+        font-size: 24px;
+        border-radius: 0px;
+        color: white;
+        background-color: #EF3340;
+      }
+  
+      .right-spacer {
+        flex: 1 1 auto;
+      }
