@@ -123,7 +123,7 @@ app.post("/api/enviarSolicitud",async(req,res) =>{
         return console.error('Error executing query', err.stack)
       }
       
-      res.sendStatus(200)
+      res.status(200).send({'done': 'done'})
     })
 
     console.log(nuevaSolicitud);

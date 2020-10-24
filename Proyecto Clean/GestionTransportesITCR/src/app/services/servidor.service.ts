@@ -19,7 +19,7 @@ export class ServidorService {
 
   crearSolicitud(nuevaSolicitud: SolicitudViaje): any{
     console.log(nuevaSolicitud);
-    const url = '/api/enviarSolicitud/';
+    const url = 'http://localhost:5000/api/enviarSolicitud';
     return this.http.post(url, nuevaSolicitud).toPromise().then(res => {
       console.log(res);
     });
