@@ -18,14 +18,14 @@ export class ServidorService {
 
   crearSolicitud(nuevaSolicitud: SolicitudViaje): any{
     console.log(nuevaSolicitud);
-    const url = this.urlplusport + '/api/enviarSolicitud';
+    const url = '/api/enviarSolicitud';
     return this.http.post(url, nuevaSolicitud).toPromise().then(res => {
       console.log(res);
     });
   }
 
   getSolicitudesyViajes(): any {
-    const url = this.urlplusport + '/api/consultarSolicitudesDeFuncionario/*/';
+    const url = '/api/consultarSolicitudesDeFuncionario/*/';
 
     // return this.http.get(url);
     console.log(url);

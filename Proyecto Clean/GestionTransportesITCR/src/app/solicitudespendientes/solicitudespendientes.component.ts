@@ -31,3 +31,5 @@ export class SolicitudespendientesComponent implements OnInit {
   }
 
 }
+
+//Datatable installation: http://l-lin.github.io/angular-datatables/#/getting-started
